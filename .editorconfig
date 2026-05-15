@@ -1,0 +1,65 @@
+root = true
+
+[*]
+charset = utf-8
+
+[*.cs]
+indent_style = space
+indent_size = 4
+tab_width = 4
+end_of_line = lf
+
+# Spacing
+space_after_method_declaration_name = false
+space_within_method_declaration_parentheses = false
+space_between_empty_method_declaration_parentheses = false
+space_after_method_call_name = false
+space_within_method_call_parentheses = false
+space_between_empty_method_call_parentheses = false
+space_after_control_flow_statement_keyword = true
+space_within_expression_parentheses = false
+space_within_cast_parentheses = false
+space_within_other_parentheses = false
+space_after_cast = false
+spaces_ignore_around_variable_declaration = false
+space_before_open_square_bracket = false
+space_between_empty_square_brackets = false
+space_within_square_brackets = false
+space_after_colon_in_base_type_declaration = true
+space_after_comma = true
+space_after_dot = false
+space_after_semicolons_in_for_statement = true
+space_before_colon_in_base_type_declaration = true
+space_before_comma = false
+space_before_dot = false
+space_before_semicolons_in_for_statement = false
+spacing_around_binary_operator = single
+
+# Indentation
+indent_braces = false
+indent_block = true
+indent_switch_section = true
+indent_switch_case_section = true
+indent_switch_case_section_when_block = true
+label_positioning = one_less
+
+# Wrapping
+wrapping_preserve_single_line = true
+wrapping_ignore_spaces_around_binary_operators = false
+
+# New lines for braces
+new_lines_for_braces_in_types = false
+new_lines_for_braces_in_methods = false
+new_lines_for_braces_in_properties = false
+new_lines_for_braces_in_accessors = false
+new_lines_for_braces_in_anonymous_methods = false
+new_lines_for_braces_in_control_blocks = false
+new_lines_for_braces_in_anonymous_types = false
+new_lines_for_braces_in_object_collection_array_initializers = false
+new_lines_for_braces_in_lambda_expression_body = false
+new_line_for_else = false
+new_line_for_catch = false
+new_line_for_finally = false
+new_line_for_members_in_object_init = false
+new_line_for_members_in_anonymous_types = false
+new_line_for_clauses_in_query = false

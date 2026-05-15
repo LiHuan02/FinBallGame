@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://epckf8ealvwa"
+path="res://.godot/imported/woo_scary.mp3-9667027525abbb7342c83ae389507cb1.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/BGM Pack 1 MP3/woo_scary.mp3"
+dest_files=["res://.godot/imported/woo_scary.mp3-9667027525abbb7342c83ae389507cb1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

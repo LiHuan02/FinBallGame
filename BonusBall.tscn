@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dx0qs5m6sycco"]
+
+[ext_resource type="Script" uid="uid://cyph2bwtnjui0" path="res://Script/BonusBall.cs" id="1_q7l8f"]
+[ext_resource type="Texture2D" uid="uid://b56wmd5c54qfu" path="res://bonus_ball_100.png" id="2_dq14y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k0kxo"]
+radius = 10.087463
+
+[sub_resource type="Animation" id="Animation_wyrx7"]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.2507888, 0.2525164)]
+}
+
+[sub_resource type="Animation" id="Animation_k0kxo"]
+resource_name = "hit"
+length = 0.3017
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.2507888, 0.2525164), Vector2(0.291, 0.293), Vector2(0.2507888, 0.2525164)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gptdo"]
+_data = {
+&"RESET": SubResource("Animation_wyrx7"),
+&"hit": SubResource("Animation_k0kxo")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q7l8f"]
+radius = 22.603884
+
+[node name="BonusBall" type="Area2D" unique_id=199271245]
+script = ExtResource("1_q7l8f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=220970887]
+scale = Vector2(0.2507888, 0.2525164)
+texture = ExtResource("2_dq14y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2044716785]
+scale = Vector2(3.0289643, 3.0498295)
+shape = SubResource("CircleShape2D_k0kxo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1021011030]
+libraries/ = SubResource("AnimationLibrary_gptdo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=763991956]
+scale = Vector2(1.3272057, 1.3363482)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=525243379]
+shape = SubResource("CircleShape2D_q7l8f")

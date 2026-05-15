@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://d0vs8svld3gty"]
+
+[ext_resource type="Script" uid="uid://b5hoaq0lc7wjb" path="res://Script/LeftFlipper.cs" id="1_h01cn"]
+[ext_resource type="Script" uid="uid://dq0q3cvklvoa0" path="res://Script/RightFlipper.cs" id="2_6to5v"]
+[ext_resource type="Texture2D" uid="uid://ceg4xaung700c" path="res://flipper.png" id="2_efvjg"]
+
+[node name="Flipper" type="Node2D" unique_id=974790104]
+
+[node name="Left" type="Node2D" parent="." unique_id=1683795108]
+position = Vector2(-86, 0)
+script = ExtResource("1_h01cn")
+
+[node name="Pivot" type="StaticBody2D" parent="Left" unique_id=736952358]
+
+[node name="Arm" type="RigidBody2D" parent="Left" unique_id=1502459040]
+gravity_scale = 0.0
+linear_damp = 5.0
+angular_damp = 2.0
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Left/Arm" unique_id=513213392]
+polygon = PackedVector2Array(67, 28, -1, -14, -13, -6, -13, 6, 55, 28)
+
+[node name="Sprite2D" type="Sprite2D" parent="Left/Arm" unique_id=1947551968]
+texture_filter = 1
+position = Vector2(3.8146973e-06, 0)
+rotation = 0.026769187
+scale = Vector2(0.6976701, 0.58712417)
+texture = ExtResource("2_efvjg")
+offset = Vector2(38.721676, 19.295753)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Left" unique_id=1866126061]
+node_a = NodePath("../Pivot")
+node_b = NodePath("../Arm")
+
+[node name="Right" type="Node2D" parent="." unique_id=1415528026]
+position = Vector2(86, 0)
+script = ExtResource("2_6to5v")
+
+[node name="Pivot" type="StaticBody2D" parent="Right" unique_id=1981424531]
+
+[node name="Arm" type="RigidBody2D" parent="Right" unique_id=2054606842]
+gravity_scale = 0.0
+linear_damp = 5.0
+angular_damp = 2.0
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Right/Arm" unique_id=1257941118]
+polygon = PackedVector2Array(12, 5, 14, -3, 3, -13, -67, 27, -58, 28)
+
+[node name="Sprite2D" type="Sprite2D" parent="Right/Arm" unique_id=1121135155]
+texture_filter = 1
+rotation = 2.3861215
+scale = Vector2(0.70770574, 0.5614439)
+texture = ExtResource("2_efvjg")
+offset = Vector2(38.591908, 16.84317)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Right" unique_id=1235135920]
+node_a = NodePath("../Pivot")
+node_b = NodePath("../Arm")

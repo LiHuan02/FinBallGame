@@ -1,0 +1,302 @@
+[gd_scene format=3 uid="uid://b3nvu5jwshrmw"]
+
+[ext_resource type="Texture2D" uid="uid://kaw22gbc0uht" path="res://弹珠台上部分.png" id="1_18yfx"]
+[ext_resource type="Script" uid="uid://bjbir3omyu44l" path="res://Script/ScoreManager.cs" id="1_cg58h"]
+[ext_resource type="Script" uid="uid://cs7qixivfh0go" path="res://Script/GameUI.cs" id="1_cn2jk"]
+[ext_resource type="Script" uid="uid://bqnlqere1nk01" path="res://Script/FixedCam.cs" id="1_woaru"]
+[ext_resource type="Texture2D" uid="uid://txepqjkshafc" path="res://弹珠台下部分.png" id="2_c3is6"]
+[ext_resource type="Texture2D" uid="uid://dfg3q1tb7xya" path="res://Ball.png" id="3_c3is6"]
+[ext_resource type="PhysicsMaterial" uid="uid://d3kb7easwjue6" path="res://Material/ball_physics_material.tres" id="4_woaru"]
+[ext_resource type="Script" uid="uid://d2ae5jgi4f1oe" path="res://Script/Spring.cs" id="6_0t45t"]
+[ext_resource type="PhysicsMaterial" uid="uid://dnmq646v4pgbg" path="res://Material/wall_physics_material.tres" id="6_i0otx"]
+[ext_resource type="Texture2D" uid="uid://bm0x0lmgc5mnk" path="res://icon.svg" id="7_woaru"]
+[ext_resource type="PackedScene" uid="uid://dx0qs5m6sycco" path="res://BonusBall.tscn" id="8_dm0h6"]
+[ext_resource type="FontFile" uid="uid://jrw8wpj3djvm" path="res://Assets/Fonts/Kenney Future.ttf" id="9_7xtyf"]
+[ext_resource type="Script" uid="uid://3ioo140wk175" path="res://Script/Ball.cs" id="9_cn2jk"]
+[ext_resource type="PackedScene" uid="uid://d0vs8svld3gty" path="res://Filpper.tscn" id="12_ch74d"]
+[ext_resource type="Script" uid="uid://btknwx7nf8o20" path="res://Script/DeathArea.cs" id="13_yji0c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ifft"]
+size = Vector2(10, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18yfx"]
+size = Vector2(9, 26)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ifft"]
+radius = 15.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_woaru"]
+size = Vector2(35, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dm0h6"]
+size = Vector2(35, 1.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ch74d"]
+size = Vector2(190, 21)
+
+[node name="Node2D" type="Node2D" unique_id=1022539583]
+
+[node name="GameState" type="CanvasLayer" parent="." unique_id=831249292]
+script = ExtResource("1_cn2jk")
+
+[node name="LeftLives" type="Label" parent="GameState" unique_id=855551622]
+offset_left = 286.0
+offset_top = 435.0
+offset_right = 456.0
+offset_bottom = 478.0
+theme_override_fonts/font = ExtResource("9_7xtyf")
+theme_override_font_sizes/font_size = 30
+text = "LIVES: 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOver" type="Label" parent="GameState" unique_id=1470135589]
+visible = false
+offset_left = 592.0
+offset_top = 354.0
+offset_right = 839.0
+offset_bottom = 397.0
+theme_override_colors/font_color = Color(18.540012, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.5618399, 0.35244364, 0.10194359, 1)
+theme_override_fonts/font = ExtResource("9_7xtyf")
+theme_override_font_sizes/font_size = 30
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameState2" type="CanvasLayer" parent="." unique_id=157138364]
+script = ExtResource("1_cn2jk")
+
+[node name="LeftLives" type="Label" parent="GameState2" unique_id=455499148]
+offset_left = 286.0
+offset_top = 1084.0
+offset_right = 456.0
+offset_bottom = 1127.0
+theme_override_fonts/font = ExtResource("9_7xtyf")
+theme_override_font_sizes/font_size = 30
+text = "LIVES: 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOver" type="Label" parent="GameState2" unique_id=1223396622]
+visible = false
+offset_left = 593.0
+offset_top = 917.0
+offset_right = 840.0
+offset_bottom = 960.0
+theme_override_colors/font_color = Color(18.540012, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.5618399, 0.35244364, 0.10194359, 1)
+theme_override_fonts/font = ExtResource("9_7xtyf")
+theme_override_font_sizes/font_size = 30
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreUI" type="CanvasLayer" parent="." unique_id=2064727804]
+script = ExtResource("1_cg58h")
+
+[node name="ScoreLabel" type="Label" parent="ScoreUI" unique_id=1828529600]
+offset_left = 286.0
+offset_top = 154.0
+offset_right = 434.0
+offset_bottom = 197.0
+theme_override_fonts/font = ExtResource("9_7xtyf")
+theme_override_font_sizes/font_size = 30
+text = "SCORE:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreValue" type="Label" parent="ScoreUI" unique_id=1687836400]
+offset_left = 286.0
+offset_top = 197.0
+offset_right = 434.0
+offset_bottom = 239.0
+theme_override_fonts/font = ExtResource("9_7xtyf")
+theme_override_font_sizes/font_size = 30
+text = "00000"
+horizontal_alignment = 1
+vertical_alignment = 1
+max_lines_visible = 1
+visible_characters = 5
+
+[node name="ScoreUI2" type="CanvasLayer" parent="." unique_id=1878745534]
+script = ExtResource("1_cg58h")
+
+[node name="ScoreLabel" type="Label" parent="ScoreUI2" unique_id=2131811473]
+offset_left = 286.0
+offset_top = 832.0
+offset_right = 434.0
+offset_bottom = 875.0
+theme_override_fonts/font = ExtResource("9_7xtyf")
+theme_override_font_sizes/font_size = 30
+text = "SCORE:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreValue" type="Label" parent="ScoreUI2" unique_id=2066312936]
+offset_left = 286.0
+offset_top = 875.0
+offset_right = 434.0
+offset_bottom = 917.0
+theme_override_fonts/font = ExtResource("9_7xtyf")
+theme_override_font_sizes/font_size = 30
+text = "00000"
+horizontal_alignment = 1
+vertical_alignment = 1
+max_lines_visible = 1
+visible_characters = 5
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=76718356]
+position = Vector2(581, 971)
+script = ExtResource("1_woaru")
+
+[node name="part1" type="Sprite2D" parent="." unique_id=1298191693]
+position = Vector2(730, 323)
+scale = Vector2(0.74024004, 0.74024004)
+texture = ExtResource("1_18yfx")
+
+[node name="Part2" type="Sprite2D" parent="." unique_id=1522851095]
+position = Vector2(730, 971)
+scale = Vector2(0.74, 0.74)
+texture = ExtResource("2_c3is6")
+
+[node name="Wall" type="StaticBody2D" parent="." unique_id=953570625]
+physics_material_override = ExtResource("6_i0otx")
+
+[node name="Round" type="CollisionPolygon2D" parent="Wall" unique_id=1421934134]
+polygon = PackedVector2Array(922, 1085, 923, 855, 891, 855, 891, 946, 867, 971, 910, 1015, 911, 1015, 911, 1182, 910, 1182, 797, 1295, 962, 1295, 974, 1295, 973, -1, 486, -1, 487, 1294, 617, 1294, 501, 1181, 501, 1014, 545, 972, 546, 970, 521, 945, 523, 754, 498, 691, 499, 485, 545, 440, 546, 336, 502, 214, 502, 160, 508, 138, 515, 123, 522, 112, 529, 99, 538, 87, 550, 76, 566, 64, 592, 51, 600, 49, 857, 49, 876, 55, 890, 63, 905, 73, 916, 82, 926, 93, 939, 112, 947, 128, 953, 144, 958, 158, 960, 176, 960, 1086)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall" unique_id=2079989171]
+polygon = PackedVector2Array(821, 1161, 822, 1171, 861, 1142, 871, 1130, 874, 1123, 874, 1040, 867, 1040, 867, 1121, 862, 1133, 857, 1138, 848, 1142, 839, 1149)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Wall" unique_id=1257335864]
+polygon = PackedVector2Array(590, 1171, 590, 1162, 580, 1155, 572, 1148, 561, 1140, 551, 1133, 545, 1121, 545, 1040, 538, 1040, 538, 1123, 545, 1135, 553, 1144, 565, 1153, 577, 1161)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Wall" unique_id=1495309959]
+polygon = PackedVector2Array(582, 1099, 584, 1106, 594, 1115, 603, 1121, 611, 1121, 614, 1118, 614, 1110, 590, 1043, 585, 1040, 582, 1044)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Wall" unique_id=1123384289]
+polygon = PackedVector2Array(799, 1110, 822, 1043, 827, 1039, 829, 1042, 830, 1100, 828, 1106, 821, 1113, 810, 1121, 801, 1121, 799, 1117)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=944244115 groups=["part2gun"]]
+position = Vector2(592, 775)
+shape = SubResource("RectangleShape2D_2ifft")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall" unique_id=541269549 groups=["part2gun"]]
+position = Vector2(639, 775)
+shape = SubResource("RectangleShape2D_2ifft")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Wall" unique_id=1370794922 groups=["part2gun"]]
+position = Vector2(684, 775)
+shape = SubResource("RectangleShape2D_2ifft")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Wall" unique_id=101302839 groups=["part2gun"]]
+position = Vector2(731, 775)
+shape = SubResource("RectangleShape2D_2ifft")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Wall" unique_id=197909963 groups=["part2gun"]]
+position = Vector2(777, 775)
+shape = SubResource("RectangleShape2D_2ifft")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Wall" unique_id=1387353163 groups=["part2gun"]]
+position = Vector2(824, 775)
+shape = SubResource("RectangleShape2D_2ifft")
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Wall" unique_id=2086304591]
+polygon = PackedVector2Array(923, 785, 923, 182, 916, 162, 909, 146, 903, 134, 896, 123, 890, 113, 878, 105, 866, 99, 852, 93, 821, 93, 774, 140, 774, 183, 774, 183, 801, 183, 812, 173, 823, 169, 831, 166, 857, 166, 874, 171, 886, 180, 894, 195, 901, 206, 905, 219, 905, 291, 905, 354, 898, 372, 892, 382, 883, 390, 868, 398, 868, 441, 910, 482, 912, 486, 912, 504, 898, 520, 883, 520, 859, 496, 855, 496, 823, 529, 822, 557, 845, 579, 845, 650, 866, 693, 902, 693, 911, 705, 911, 725, 892, 760, 892, 786)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Wall" unique_id=1122373340]
+polygon = PackedVector2Array(553, 496, 536, 514, 535, 673, 549, 694, 561, 693, 568, 683, 568, 577, 590, 557, 590, 529, 558, 495)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Wall" unique_id=1317113456]
+polygon = PackedVector2Array(591, 98, 580, 104, 571, 109, 565, 116, 559, 124, 553, 138, 546, 154, 545, 159, 545, 215, 551, 233, 556, 250, 565, 266, 571, 276, 585, 277, 590, 267, 590, 230, 610, 213, 641, 182, 640, 138, 599, 97)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Wall" unique_id=243492408]
+position = Vector2(684.5, 154)
+shape = SubResource("RectangleShape2D_18yfx")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Wall" unique_id=1163517732]
+position = Vector2(731, 154)
+shape = SubResource("RectangleShape2D_18yfx")
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Wall" unique_id=1029928031]
+polygon = PackedVector2Array(823, 230, 841, 217, 850, 217, 866, 230, 866, 230, 868, 232, 868, 336, 862, 345, 850, 345, 843, 336, 843, 251)
+
+[node name="Ball" type="RigidBody2D" parent="." unique_id=1531657038 groups=["ball"]]
+position = Vector2(941, 940)
+collision_layer = 15
+collision_mask = 15
+physics_material_override = ExtResource("4_woaru")
+lock_rotation = true
+linear_damp = 0.2
+script = ExtResource("9_cn2jk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball" unique_id=252159130]
+position = Vector2(0.16362, 0.08453846)
+scale = Vector2(0.015820187, 0.015820187)
+texture = ExtResource("3_c3is6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=898691917]
+position = Vector2(0.16363525, 0.08453369)
+shape = SubResource("CircleShape2D_2ifft")
+
+[node name="Spring" type="Node2D" parent="." unique_id=1673300669]
+position = Vector2(941, 1031)
+script = ExtResource("6_0t45t")
+
+[node name="Bottom" type="StaticBody2D" parent="Spring" unique_id=1879651334]
+position = Vector2(0, 53)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spring/Bottom" unique_id=930669658]
+shape = SubResource("RectangleShape2D_woaru")
+
+[node name="Sprite2D" type="Sprite2D" parent="Spring/Bottom" unique_id=545316712]
+scale = Vector2(0.27339604, 0.0077702906)
+texture = ExtResource("7_woaru")
+
+[node name="Top" type="AnimatableBody2D" parent="Spring" unique_id=1931963567]
+position = Vector2(0, -10)
+collision_layer = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spring/Top" unique_id=431741091]
+position = Vector2(0, 0.25)
+shape = SubResource("RectangleShape2D_dm0h6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Spring/Top" unique_id=1864832846]
+scale = Vector2(0.27148423, 0.005859375)
+texture = ExtResource("7_woaru")
+
+[node name="SpringVisual" type="Line2D" parent="Spring" unique_id=1225280043]
+width = 1.02
+default_color = Color(1.0419999, 0.31324938, 0.7830103, 1)
+
+[node name="BonusBall1" parent="." unique_id=1999005167 groups=["bonus_ball"] instance=ExtResource("8_dm0h6")]
+position = Vector2(707, 265)
+scale = Vector2(1.1685876, 1.1685876)
+
+[node name="BonusBall2" parent="." unique_id=1106345667 groups=["bonus_ball"] instance=ExtResource("8_dm0h6")]
+position = Vector2(775, 867)
+scale = Vector2(1.1832443, 1.1832443)
+
+[node name="BonusBall3" parent="." unique_id=707031278 groups=["bonus_ball"] instance=ExtResource("8_dm0h6")]
+position = Vector2(637, 867)
+scale = Vector2(1.1546988, 1.1546988)
+
+[node name="BonusBall4" parent="." unique_id=2108610399 groups=["bonus_ball"] instance=ExtResource("8_dm0h6")]
+position = Vector2(707, 959)
+scale = Vector2(1.1656734, 1.1656734)
+
+[node name="Flipper" parent="." unique_id=974790104 instance=ExtResource("12_ch74d")]
+position = Vector2(706, 555)
+scale = Vector2(1.1440089, 1.1440089)
+
+[node name="Flipper2" parent="." unique_id=436665474 instance=ExtResource("12_ch74d")]
+position = Vector2(706, 1183)
+scale = Vector2(1.1859087, 1.1859087)
+
+[node name="DeathArea" type="Area2D" parent="." unique_id=2035419707]
+position = Vector2(707, 1312)
+script = ExtResource("13_yji0c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea" unique_id=534569520]
+shape = SubResource("RectangleShape2D_ch74d")
