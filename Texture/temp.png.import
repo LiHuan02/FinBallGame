@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b56wmd5c54qfu"
-path="res://.godot/imported/bonus_ball_100.png-0cf7099df2c7d349d726d3aad1ef3630.ctex"
+uid="uid://bqwfaatlgls5k"
+path="res://.godot/imported/temp.png-a400b38d37fe88cce18586abfe2d7614.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bonus_ball_100.png"
-dest_files=["res://.godot/imported/bonus_ball_100.png-0cf7099df2c7d349d726d3aad1ef3630.ctex"]
+source_file="res://Texture/temp.png"
+dest_files=["res://.godot/imported/temp.png-a400b38d37fe88cce18586abfe2d7614.ctex"]
 
 [params]
 

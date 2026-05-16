@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://qba7cd0ahrbk"]
+
+[ext_resource type="Texture2D" uid="uid://bu8vt5mi5so4r" path="res://Texture/coin_16.png" id="1_h5dih"]
+[ext_resource type="Script" uid="uid://bvahxdg06fdem" path="res://Script/Coin.cs" id="1_ou7jl"]
+[ext_resource type="AudioStream" uid="uid://c452h2uofmgf8" path="res://Src/Audio/sound-of-flipped-coin-in-hand-heads-or-tails.mp3" id="2_ufda5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ou7jl"]
+radius = 5.0
+
+[sub_resource type="Animation" id="Animation_h5dih"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.082229234, 0.082229234)]
+}
+
+[sub_resource type="Animation" id="Animation_ou7jl"]
+resource_name = "collect"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.082229234, 0.082229234), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ufda5"]
+resource_name = "reset"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.082229234, 0.082229234)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fj540"]
+_data = {
+&"RESET": SubResource("Animation_h5dih"),
+&"collect": SubResource("Animation_ou7jl"),
+&"reset": SubResource("Animation_ufda5")
+}
+
+[node name="Coin" type="Area2D" unique_id=834545321]
+script = ExtResource("1_ou7jl")
+CollectSound = ExtResource("2_ufda5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1267617159]
+scale = Vector2(0.082229234, 0.082229234)
+texture = ExtResource("1_h5dih")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1385066609]
+shape = SubResource("CircleShape2D_ou7jl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=608509242]
+libraries/ = SubResource("AnimationLibrary_fj540")

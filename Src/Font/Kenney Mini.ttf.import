@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://jrw8wpj3djvm"
-path="res://.godot/imported/Kenney Future.ttf-2382baec0bc196751f90a9778c5153ac.fontdata"
+uid="uid://dfj51f4snaq3f"
+path="res://.godot/imported/Kenney Mini.ttf-d77ab1e3226e7f4462f90b1ff9e00372.fontdata"
 
 [deps]
 
-source_file="res://Assets/Fonts/Kenney Future.ttf"
-dest_files=["res://.godot/imported/Kenney Future.ttf-2382baec0bc196751f90a9778c5153ac.fontdata"]
+source_file="res://Src/Font/Kenney Mini.ttf"
+dest_files=["res://.godot/imported/Kenney Mini.ttf-d77ab1e3226e7f4462f90b1ff9e00372.fontdata"]
 
 [params]
 

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://jcu4uet7pkrf"]
+
+[ext_resource type="Script" uid="uid://hdh0l7oluh0t" path="res://Script/CoinResetSwitch.cs" id="1_ba11r"]
+[ext_resource type="Texture2D" uid="uid://bm0x0lmgc5mnk" path="res://Texture/icon.svg" id="2_vsbwn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vrlo"]
+
+[node name="CoinResetSwitch" type="Area2D" unique_id=2018971231]
+script = ExtResource("1_ba11r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=296662355]
+scale = Vector2(3.291615, 0.6813708)
+shape = SubResource("RectangleShape2D_7vrlo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=667080656]
+self_modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.556323, 0.12499253)
+texture = ExtResource("2_vsbwn")

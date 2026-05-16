@@ -2,13 +2,15 @@
 
 [ext_resource type="Script" uid="uid://b5hoaq0lc7wjb" path="res://Script/LeftFlipper.cs" id="1_h01cn"]
 [ext_resource type="Script" uid="uid://dq0q3cvklvoa0" path="res://Script/RightFlipper.cs" id="2_6to5v"]
-[ext_resource type="Texture2D" uid="uid://ceg4xaung700c" path="res://flipper.png" id="2_efvjg"]
+[ext_resource type="Texture2D" uid="uid://ceg4xaung700c" path="res://Texture/flipper.png" id="2_efvjg"]
+[ext_resource type="AudioStream" uid="uid://dyg8w6kdww83n" path="res://Src/Audio/footstep_concrete_000.ogg" id="2_gh7it"]
 
 [node name="Flipper" type="Node2D" unique_id=974790104]
 
 [node name="Left" type="Node2D" parent="." unique_id=1683795108]
 position = Vector2(-86, 0)
 script = ExtResource("1_h01cn")
+flipperSound = ExtResource("2_gh7it")
 
 [node name="Pivot" type="StaticBody2D" parent="Left" unique_id=736952358]
 
@@ -35,6 +37,7 @@ node_b = NodePath("../Arm")
 [node name="Right" type="Node2D" parent="." unique_id=1415528026]
 position = Vector2(86, 0)
 script = ExtResource("2_6to5v")
+flipperSound = ExtResource("2_gh7it")
 
 [node name="Pivot" type="StaticBody2D" parent="Right" unique_id=1981424531]
 

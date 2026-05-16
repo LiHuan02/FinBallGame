@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://edyoee1ugger"]
+
+[ext_resource type="Script" uid="uid://d2jqmk0txr4lk" path="res://Script/ScoreZone.cs" id="1_gss4k"]
+[ext_resource type="AudioStream" uid="uid://cgxltrph6t232" path="res://Src/Audio/impactMetal_heavy_001.ogg" id="2_4xyq2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hilgt"]
+size = Vector2(20, 2)
+
+[node name="ScoreZone" type="Area2D" unique_id=1564647737]
+script = ExtResource("1_gss4k")
+ScoreSound = ExtResource("2_4xyq2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=46538811]
+shape = SubResource("RectangleShape2D_hilgt")

@@ -4,6 +4,7 @@ public partial class BonusBall : Area2D
 {
 	[Export] public int ScoreValue = 100;
 	[Export] public float EnergyImpulse = 250f;      // 给予球的冲量大小（单位：像素/秒²）
+	[Export] public AudioStream bonusSound;
 
 
 	private bool active = true;
@@ -24,7 +25,7 @@ public partial class BonusBall : Area2D
 		if (body is RigidBody2D ball)
 		{
 			// 加分
-			EmitSignal(SignalName.ScoreAwarded, ScoreValue);
+			ScoreManager.AddScore(ScoreValue);
 
 			// 给予球一个冲量
 			Vector2 dir = ball.GlobalPosition.DirectionTo(GlobalPosition).Normalized();
@@ -32,6 +33,8 @@ public partial class BonusBall : Area2D
 
 			// 播放缩放动画
 			anim.Play("hit");
+
+			SoundManager.PlaySound(bonusSound);
 		}
 	}
 }

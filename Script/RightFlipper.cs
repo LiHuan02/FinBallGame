@@ -8,6 +8,7 @@ public partial class RightFlipper : Node2D
 	[Export] public float FlipSpeed = 20f;              // 按下时的角速度（越大越快）
 	[Export] public float ReturnSpeed = 10f;            // 松手回弹的角速度
 	[Export] public bool Clockwise = true;             // 按下时旋转方向（false=逆时针，true=顺时针）
+	[Export] private AudioStream flipperSound;
 
 	private RigidBody2D arm;
 	private float targetRotation;                       // 目标旋转弧度
@@ -22,6 +23,10 @@ public partial class RightFlipper : Node2D
 
 	public override void _PhysicsProcess(double delta)
 	{
+		if (Input.IsActionJustPressed(ActionName))
+		{
+			SoundManager.PlaySound(flipperSound);
+		}
 		bool pressed = Input.IsActionPressed(ActionName);
 		float targetAngle = pressed ? ActiveAngle : RestAngle;
 		// 根据方向转换角度

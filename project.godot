@@ -13,11 +13,13 @@ config_version=5
 config/name="弹跳球"
 run/main_scene="res://mainMenu.tscn"
 config/features=PackedStringArray("4.6", "C#", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://Texture/icon.svg"
 
 [autoload]
 
+SoundManager="*uid://dp5r05ignbb80"
 GameState="*uid://b64a6vp814a1e"
+ScoreManager="*uid://bjbir3omyu44l"
 
 [dotnet]
 

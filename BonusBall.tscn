@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dx0qs5m6sycco"]
 
 [ext_resource type="Script" uid="uid://cyph2bwtnjui0" path="res://Script/BonusBall.cs" id="1_q7l8f"]
-[ext_resource type="Texture2D" uid="uid://b56wmd5c54qfu" path="res://bonus_ball_100.png" id="2_dq14y"]
+[ext_resource type="AudioStream" uid="uid://ickg4x2d6rrg" path="res://Src/Audio/footstep_wood_000.ogg" id="2_aytwk"]
+[ext_resource type="Texture2D" uid="uid://b56wmd5c54qfu" path="res://Texture/bonus_ball_100.png" id="2_dq14y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k0kxo"]
 radius = 10.087463
@@ -48,6 +49,7 @@ radius = 22.603884
 
 [node name="BonusBall" type="Area2D" unique_id=199271245]
 script = ExtResource("1_q7l8f")
+bonusSound = ExtResource("2_aytwk")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=220970887]
 scale = Vector2(0.2507888, 0.2525164)

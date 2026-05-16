@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://icbml001wrsb"]
 
-[ext_resource type="Texture2D" uid="uid://bjouyeyktav28" path="res://Title.png" id="1_w7d22"]
+[ext_resource type="Texture2D" uid="uid://bjouyeyktav28" path="res://Texture/Title.png" id="1_w7d22"]
 [ext_resource type="Script" uid="uid://dri058cncbj3g" path="res://Script/StartMenu.cs" id="2_wc2lj"]
-[ext_resource type="FontFile" uid="uid://dfj51f4snaq3f" path="res://Assets/Fonts/Kenney Mini.ttf" id="3_wked4"]
-[ext_resource type="AudioStream" uid="uid://du83ojmwdxlrw" path="res://Assets/Audio/BGM Pack 1 MP3/frozen_winter.mp3" id="4_wc2lj"]
+[ext_resource type="FontFile" uid="uid://dfj51f4snaq3f" path="res://Src/Font/Kenney Mini.ttf" id="3_wked4"]
+[ext_resource type="AudioStream" uid="uid://du83ojmwdxlrw" path="res://Src/Audio/frozen_winter.mp3" id="4_wc2lj"]
 
 [node name="Control" type="Control" unique_id=947595697]
 layout_mode = 3

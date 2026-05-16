@@ -3,26 +3,27 @@ using Godot;
 public partial class ScoreManager : CanvasLayer
 {
 	private int score = 0;
-	private Label scoreValueLabel;
+	public static ScoreManager Instance { get; private set; }
+
+	// 定义分数更新信号
+	[Signal]
+	public delegate void ScoreUpdatedEventHandler(int newScore);
 
 	public override void _Ready()
 	{
-		scoreValueLabel = GetNode<Label>("ScoreValue");
-		// 连接所有奖励球的信号
-		var bonusBalls = GetTree().GetNodesInGroup("bonus_ball");
-
-		foreach (var node in bonusBalls)
-		{
-			if (node is BonusBall ball)
-			{
-				ball.ScoreAwarded += OnScoreAwarded;
-			}
-		}
+		Instance = this;
 	}
 
-	private void OnScoreAwarded(int points)
+	public static void AddScore(int points)
 	{
-		score += points;
-		scoreValueLabel.Text = score.ToString();
+		Instance.score += points;
+		// 发射分数更新信号
+		Instance.EmitSignal("ScoreUpdated", Instance.score);
+	}
+
+	// 获取当前分数
+	public static int GetScore()
+	{
+		return Instance.score;
 	}
 }

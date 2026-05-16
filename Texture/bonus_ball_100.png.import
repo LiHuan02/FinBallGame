@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://txepqjkshafc"
-path="res://.godot/imported/弹珠台下部分.png-a289cd7ffdaa6a7c3681dd417630f6ee.ctex"
+uid="uid://b56wmd5c54qfu"
+path="res://.godot/imported/bonus_ball_100.png-0f5ea1921abb549062848299a1f1c80a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://弹珠台下部分.png"
-dest_files=["res://.godot/imported/弹珠台下部分.png-a289cd7ffdaa6a7c3681dd417630f6ee.ctex"]
+source_file="res://Texture/bonus_ball_100.png"
+dest_files=["res://.godot/imported/bonus_ball_100.png-0f5ea1921abb549062848299a1f1c80a.ctex"]
 
 [params]
 

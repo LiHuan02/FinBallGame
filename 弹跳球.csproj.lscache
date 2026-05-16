@@ -58,13 +58,21 @@ TemporaryDependencyNodeTargetIdentifier=net8.0
 Script/
  Ball.cs
  BonusBall.cs
+ Coin.cs
+ CoinResetSwitch.cs
  DeathArea.cs
+ DigitalPanel.cs
  FixedCam.cs
  GameState.cs
  GameUI.cs
  LeftFlipper.cs
+ MovingPlatform.cs
  RightFlipper.cs
+ ScoreboardController.cs
  ScoreManager.cs
+ ScoreUI.cs
+ ScoreZone.cs
+ SoundManager.cs
  Spring.cs
  Spring3.cs
  StartMenu.cs

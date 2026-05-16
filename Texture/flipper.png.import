@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqwfaatlgls5k"
-path="res://.godot/imported/temp.png-201e6e8271ac4243360d04fb5ad56331.ctex"
+uid="uid://ceg4xaung700c"
+path="res://.godot/imported/flipper.png-ace12c437512c78a5dcfac0e51d69cca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://temp.png"
-dest_files=["res://.godot/imported/temp.png-201e6e8271ac4243360d04fb5ad56331.ctex"]
+source_file="res://Texture/flipper.png"
+dest_files=["res://.godot/imported/flipper.png-ace12c437512c78a5dcfac0e51d69cca.ctex"]
 
 [params]
 

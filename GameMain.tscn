@@ -1,20 +1,29 @@
 [gd_scene format=3 uid="uid://b3nvu5jwshrmw"]
 
-[ext_resource type="Texture2D" uid="uid://kaw22gbc0uht" path="res://弹珠台上部分.png" id="1_18yfx"]
-[ext_resource type="Script" uid="uid://bjbir3omyu44l" path="res://Script/ScoreManager.cs" id="1_cg58h"]
+[ext_resource type="Texture2D" uid="uid://kaw22gbc0uht" path="res://Texture/弹珠台上部分.png" id="1_18yfx"]
 [ext_resource type="Script" uid="uid://cs7qixivfh0go" path="res://Script/GameUI.cs" id="1_cn2jk"]
 [ext_resource type="Script" uid="uid://bqnlqere1nk01" path="res://Script/FixedCam.cs" id="1_woaru"]
-[ext_resource type="Texture2D" uid="uid://txepqjkshafc" path="res://弹珠台下部分.png" id="2_c3is6"]
-[ext_resource type="Texture2D" uid="uid://dfg3q1tb7xya" path="res://Ball.png" id="3_c3is6"]
+[ext_resource type="Texture2D" uid="uid://txepqjkshafc" path="res://Texture/弹珠台下部分.png" id="2_c3is6"]
+[ext_resource type="Texture2D" uid="uid://dfg3q1tb7xya" path="res://Texture/Ball.png" id="3_c3is6"]
+[ext_resource type="Script" path="res://Script/ScoreUI.cs" id="3_cn2jk"]
 [ext_resource type="PhysicsMaterial" uid="uid://d3kb7easwjue6" path="res://Material/ball_physics_material.tres" id="4_woaru"]
 [ext_resource type="Script" uid="uid://d2ae5jgi4f1oe" path="res://Script/Spring.cs" id="6_0t45t"]
 [ext_resource type="PhysicsMaterial" uid="uid://dnmq646v4pgbg" path="res://Material/wall_physics_material.tres" id="6_i0otx"]
-[ext_resource type="Texture2D" uid="uid://bm0x0lmgc5mnk" path="res://icon.svg" id="7_woaru"]
+[ext_resource type="Texture2D" uid="uid://bm0x0lmgc5mnk" path="res://Texture/icon.svg" id="7_woaru"]
 [ext_resource type="PackedScene" uid="uid://dx0qs5m6sycco" path="res://BonusBall.tscn" id="8_dm0h6"]
-[ext_resource type="FontFile" uid="uid://jrw8wpj3djvm" path="res://Assets/Fonts/Kenney Future.ttf" id="9_7xtyf"]
+[ext_resource type="FontFile" uid="uid://jrw8wpj3djvm" path="res://Src/Font/Kenney Future.ttf" id="9_7xtyf"]
 [ext_resource type="Script" uid="uid://3ioo140wk175" path="res://Script/Ball.cs" id="9_cn2jk"]
 [ext_resource type="PackedScene" uid="uid://d0vs8svld3gty" path="res://Filpper.tscn" id="12_ch74d"]
 [ext_resource type="Script" uid="uid://btknwx7nf8o20" path="res://Script/DeathArea.cs" id="13_yji0c"]
+[ext_resource type="PackedScene" uid="uid://edyoee1ugger" path="res://score_zone.tscn" id="16_voiyr"]
+[ext_resource type="Script" uid="uid://cyq2rvc2n04yn" path="res://Script/MovingPlatform.cs" id="17_1selp"]
+[ext_resource type="Texture2D" uid="uid://bg37soj2hvfcj" path="res://Texture/Platform.png" id="18_16gtq"]
+[ext_resource type="PackedScene" uid="uid://jcu4uet7pkrf" path="res://coin_reset_switch.tscn" id="18_m4sg4"]
+[ext_resource type="PackedScene" uid="uid://qba7cd0ahrbk" path="res://Coin.tscn" id="18_shr5r"]
+[ext_resource type="AudioStream" uid="uid://cnpkxy3a6eo70" path="res://Src/Audio/impactBell_heavy_002.ogg" id="19_kr8vk"]
+[ext_resource type="Script" uid="uid://betyp67rudkc0" path="res://Script/ScoreboardController.cs" id="22_bokox"]
+[ext_resource type="Script" uid="uid://8heeqfav1kei" path="res://Script/DigitalPanel.cs" id="23_i8vgb"]
+[ext_resource type="FontFile" uid="uid://dfj51f4snaq3f" path="res://Src/Font/Kenney Mini.ttf" id="24_bdom0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ifft"]
 size = Vector2(10, 32)
@@ -33,6 +42,11 @@ size = Vector2(35, 1.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ch74d"]
 size = Vector2(190, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_voiyr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kut4r"]
+size = Vector2(41, 43)
 
 [node name="Node2D" type="Node2D" unique_id=1022539583]
 
@@ -93,7 +107,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ScoreUI" type="CanvasLayer" parent="." unique_id=2064727804]
-script = ExtResource("1_cg58h")
+script = ExtResource("3_cn2jk")
 
 [node name="ScoreLabel" type="Label" parent="ScoreUI" unique_id=1828529600]
 offset_left = 286.0
@@ -120,7 +134,7 @@ max_lines_visible = 1
 visible_characters = 5
 
 [node name="ScoreUI2" type="CanvasLayer" parent="." unique_id=1878745534]
-script = ExtResource("1_cg58h")
+script = ExtResource("3_cn2jk")
 
 [node name="ScoreLabel" type="Label" parent="ScoreUI2" unique_id=2131811473]
 offset_left = 286.0
@@ -209,7 +223,7 @@ polygon = PackedVector2Array(923, 785, 923, 182, 916, 162, 909, 146, 903, 134, 8
 polygon = PackedVector2Array(553, 496, 536, 514, 535, 673, 549, 694, 561, 693, 568, 683, 568, 577, 590, 557, 590, 529, 558, 495)
 
 [node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Wall" unique_id=1317113456]
-polygon = PackedVector2Array(591, 98, 580, 104, 571, 109, 565, 116, 559, 124, 553, 138, 546, 154, 545, 159, 545, 215, 551, 233, 556, 250, 565, 266, 571, 276, 585, 277, 590, 267, 590, 230, 610, 213, 641, 182, 640, 138, 599, 97)
+polygon = PackedVector2Array(638, 140, 598, 99, 592, 99, 575, 109, 564, 122, 554, 141, 547, 158, 547, 214, 556, 241, 564, 261, 572, 274, 584, 274, 589, 264, 589, 230, 601, 217, 608, 224, 626, 205, 621, 199, 639, 181)
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Wall" unique_id=243492408]
 position = Vector2(684.5, 154)
@@ -270,22 +284,6 @@ texture = ExtResource("7_woaru")
 width = 1.02
 default_color = Color(1.0419999, 0.31324938, 0.7830103, 1)
 
-[node name="BonusBall1" parent="." unique_id=1999005167 groups=["bonus_ball"] instance=ExtResource("8_dm0h6")]
-position = Vector2(707, 265)
-scale = Vector2(1.1685876, 1.1685876)
-
-[node name="BonusBall2" parent="." unique_id=1106345667 groups=["bonus_ball"] instance=ExtResource("8_dm0h6")]
-position = Vector2(775, 867)
-scale = Vector2(1.1832443, 1.1832443)
-
-[node name="BonusBall3" parent="." unique_id=707031278 groups=["bonus_ball"] instance=ExtResource("8_dm0h6")]
-position = Vector2(637, 867)
-scale = Vector2(1.1546988, 1.1546988)
-
-[node name="BonusBall4" parent="." unique_id=2108610399 groups=["bonus_ball"] instance=ExtResource("8_dm0h6")]
-position = Vector2(707, 959)
-scale = Vector2(1.1656734, 1.1656734)
-
 [node name="Flipper" parent="." unique_id=974790104 instance=ExtResource("12_ch74d")]
 position = Vector2(706, 555)
 scale = Vector2(1.1440089, 1.1440089)
@@ -300,3 +298,197 @@ script = ExtResource("13_yji0c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea" unique_id=534569520]
 shape = SubResource("RectangleShape2D_ch74d")
+
+[node name="BonusBall" type="Node2D" parent="." unique_id=777374350]
+
+[node name="BonusBall1" parent="BonusBall" unique_id=1999005167 groups=["bonus_ball"] instance=ExtResource("8_dm0h6")]
+position = Vector2(707, 265)
+scale = Vector2(1.1685876, 1.1685876)
+
+[node name="BonusBall2" parent="BonusBall" unique_id=1106345667 groups=["bonus_ball"] instance=ExtResource("8_dm0h6")]
+position = Vector2(775, 867)
+scale = Vector2(1.1832443, 1.1832443)
+
+[node name="BonusBall3" parent="BonusBall" unique_id=707031278 groups=["bonus_ball"] instance=ExtResource("8_dm0h6")]
+position = Vector2(637, 867)
+scale = Vector2(1.1546988, 1.1546988)
+
+[node name="BonusBall4" parent="BonusBall" unique_id=2108610399 groups=["bonus_ball"] instance=ExtResource("8_dm0h6")]
+position = Vector2(707, 959)
+scale = Vector2(1.1656734, 1.1656734)
+
+[node name="ScoreZone" type="Node2D" parent="." unique_id=1014170813]
+
+[node name="ScoreZone1" parent="ScoreZone" unique_id=1564647737 instance=ExtResource("16_voiyr")]
+position = Vector2(708, 153)
+scale = Vector2(1.5607537, 1.5607537)
+ScoreValue = 1000
+
+[node name="ScoreZone2" parent="ScoreZone" unique_id=210867192 instance=ExtResource("16_voiyr")]
+position = Vector2(755, 153)
+scale = Vector2(1.5607537, 1.5607537)
+ScoreValue = 500
+
+[node name="ScoreZone3" parent="ScoreZone" unique_id=699628547 instance=ExtResource("16_voiyr")]
+position = Vector2(660, 153)
+scale = Vector2(1.5607537, 1.5607537)
+ScoreValue = 500
+
+[node name="ScoreZone4" parent="ScoreZone" unique_id=308140196 instance=ExtResource("16_voiyr")]
+position = Vector2(846.99994, 192.99998)
+rotation = 1.5766587
+scale = Vector2(1.5607537, 1.5607537)
+ScoreValue = 500
+
+[node name="ScoreZone5" parent="ScoreZone" unique_id=1381516842 instance=ExtResource("16_voiyr")]
+position = Vector2(587.00006, 78)
+rotation = 1.1283057
+scale = Vector2(1.5607537, 1.5607537)
+ScoreValue = 1000
+
+[node name="ScoreZone6" parent="ScoreZone" unique_id=1599179099 instance=ExtResource("16_voiyr")]
+position = Vector2(615, 776)
+scale = Vector2(1.5607537, 1.5607537)
+ScoreValue = 200
+
+[node name="ScoreZone7" parent="ScoreZone" unique_id=1320917023 instance=ExtResource("16_voiyr")]
+position = Vector2(662, 776)
+scale = Vector2(1.5607537, 1.5607537)
+ScoreValue = 200
+
+[node name="ScoreZone8" parent="ScoreZone" unique_id=517913730 instance=ExtResource("16_voiyr")]
+position = Vector2(708, 776)
+scale = Vector2(1.5607537, 1.5607537)
+ScoreValue = 200
+
+[node name="ScoreZone9" parent="ScoreZone" unique_id=1386996627 instance=ExtResource("16_voiyr")]
+position = Vector2(754, 776)
+scale = Vector2(1.5607537, 1.5607537)
+ScoreValue = 200
+
+[node name="ScoreZone10" parent="ScoreZone" unique_id=963467829 instance=ExtResource("16_voiyr")]
+position = Vector2(801, 776)
+scale = Vector2(1.5607537, 1.5607537)
+ScoreValue = 200
+
+[node name="MovingPlatform" type="AnimatableBody2D" parent="." unique_id=940786667]
+position = Vector2(706.00006, 364)
+scale = Vector2(0.40109366, 0.2905539)
+script = ExtResource("17_1selp")
+MoveDistance = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatform" unique_id=541245511]
+scale = Vector2(6.3560824, 1.0244342)
+shape = SubResource("RectangleShape2D_voiyr")
+
+[node name="Sprite2D" type="Sprite2D" parent="MovingPlatform" unique_id=1888922320]
+scale = Vector2(2.4284346, 1.1363578)
+texture = ExtResource("18_16gtq")
+
+[node name="CoinResetSwitch" parent="." unique_id=2018971231 instance=ExtResource("18_m4sg4")]
+position = Vector2(616, 217)
+rotation = -0.8123372
+scale = Vector2(0.68805236, 0.68805236)
+SwitchSound = ExtResource("19_kr8vk")
+
+[node name="Coins" type="Node2D" parent="." unique_id=2021256834]
+
+[node name="Coin1" parent="Coins" unique_id=834545321 instance=ExtResource("18_shr5r")]
+position = Vector2(541, 265)
+
+[node name="Coin2" parent="Coins" unique_id=685394426 instance=ExtResource("18_shr5r")]
+position = Vector2(521.874, 190.90767)
+
+[node name="Coin3" parent="Coins" unique_id=1451329987 instance=ExtResource("18_shr5r")]
+position = Vector2(523.9016, 219.00511)
+
+[node name="Coin4" parent="Coins" unique_id=1224107706 instance=ExtResource("18_shr5r")]
+position = Vector2(530.56396, 243.33691)
+
+[node name="Coin5" parent="Coins" unique_id=1294761985 instance=ExtResource("18_shr5r")]
+position = Vector2(534.61926, 134.7128)
+
+[node name="Coin6" parent="Coins" unique_id=1616885514 instance=ExtResource("18_shr5r")]
+position = Vector2(547.0747, 109.51198)
+
+[node name="Coin7" parent="Coins" unique_id=341334697 instance=ExtResource("18_shr5r")]
+position = Vector2(563.87524, 92.132126)
+
+[node name="Coin8" parent="Coins" unique_id=59354247 instance=ExtResource("18_shr5r")]
+position = Vector2(526.7983, 162.52057)
+
+[node name="ScoreBoard" type="Node2D" parent="." unique_id=799819034 node_paths=PackedStringArray("Hundreds", "Tens", "Units", "TriggerZone")]
+position = Vector2(639, 383)
+script = ExtResource("22_bokox")
+Hundreds = NodePath("Hundreds")
+Tens = NodePath("Tens")
+Units = NodePath("Units")
+TriggerZone = NodePath("TriggerZone")
+
+[node name="Hundreds" type="Node2D" parent="ScoreBoard" unique_id=2041294179]
+position = Vector2(11, 0)
+script = ExtResource("23_i8vgb")
+
+[node name="ColorRect" type="ColorRect" parent="ScoreBoard/Hundreds" unique_id=1043170857]
+offset_right = 30.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ScoreBoard/Hundreds" unique_id=145460220]
+offset_right = 30.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("24_bdom0")
+theme_override_font_sizes/font_size = 32
+text = "9"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 1
+
+[node name="Tens" type="Node2D" parent="ScoreBoard" unique_id=1230578649]
+position = Vector2(53, 0)
+script = ExtResource("23_i8vgb")
+
+[node name="ColorRect" type="ColorRect" parent="ScoreBoard/Tens" unique_id=1324450819]
+offset_right = 30.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ScoreBoard/Tens" unique_id=1380662635]
+offset_right = 30.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("24_bdom0")
+theme_override_font_sizes/font_size = 32
+text = "9"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 1
+
+[node name="Units" type="Node2D" parent="ScoreBoard" unique_id=133020008]
+position = Vector2(94, 0)
+script = ExtResource("23_i8vgb")
+
+[node name="ColorRect" type="ColorRect" parent="ScoreBoard/Units" unique_id=1615046838]
+offset_right = 30.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ScoreBoard/Units" unique_id=1770066881]
+offset_right = 30.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("24_bdom0")
+theme_override_font_sizes/font_size = 32
+text = "9"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 1
+
+[node name="TriggerZone" type="Area2D" parent="ScoreBoard" unique_id=1079841065]
+position = Vector2(225, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreBoard/TriggerZone" unique_id=182398491]
+position = Vector2(13, 11)
+rotation = 0.8377167
+scale = Vector2(0.91535527, 0.18798308)
+shape = SubResource("RectangleShape2D_kut4r")
